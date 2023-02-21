@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>task2</title>
+</head>
+
+<body>
+    <pre>
+        Complete the function that takes a string of English-language text 
+        and returns the number of consonants in the string.
+        Consonants are all letters used to write English excluding the vowels a, e, i, o, u.
+    </pre>
+
+    <script>
+        function consonantCount(str) {
+            let result1 = (str.match(/[A-Za-z]/g) !== null) ? str.match(/[A-Za-z]/g) : "";
+            let result2 = (str.match(/[aeiouAEIOU]/g) !== null) ? str.match(/[aeiouAEIOU]/g) : "";
+
+            return result1.length - result2.length;                 //mysolution
+           // return str.replace(/[^a-z]|[aeiou]/ig,'').length;     //the best solution 
+        }
+
+        console.log(consonantCount("")); //0
+        console.log(consonantCount("aeiouAEIOU")); //0
+        console.log(consonantCount("bcdfghjklmnpqrstvwxyz")); //21
+        console.log(consonantCount("bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ")); //42
+        console.log(consonantCount("Y")); //1
+        console.log(consonantCount("y")); //1
+        console.log(consonantCount(" ^&$#")); //0
+        console.log(consonantCount("aeiou AEIOU bcdfghjklmnpqrstvwxyz BCDFGHJKLMNPQRSTVWXYZ 01234567890_ ^&$#")); //42
+    </script>
+</body>
+
+</html>
