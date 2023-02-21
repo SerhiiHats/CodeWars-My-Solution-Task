@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>task1</title>
+</head>
+
+<body>
+    <pre>
+        For a given string s find the character c (or C) with longest consecutive repetition and return: [c, l] 
+        where l (or L) is the length of the repetition. I
+        f there are two or more characters with the same l return the first in order of appearance.
+        For empty string return: ["", 0]
+        In JavaScript: If you use Array.sort in your solution, you might experience issues with the random tests as Array.sort is not stable in the Node.js version used by CodeWars. 
+        This is not a kata issue.
+        Happy coding! :)
+
+    </pre>
+
+    <script>
+        function longestRepetition(s) {
+            let tempArr;           
+            let maxCount = 1;
+            let count = 1;
+
+            if (s.length === 0) {
+                return ["", 0];
+            } else {
+                tempArr = s.split("");
+            }
+
+            let solutionArr = [tempArr[0], 1];
+
+            for (let i = 0; i < tempArr.length - 1; i++) {
+                if (tempArr[i] === tempArr[i + 1]) {
+                    maxCount++;
+                    if (count < maxCount) {
+                        count = maxCount
+                        solutionArr[0] = tempArr[i];
+                        solutionArr[1] = count;
+                    }
+                } else {
+                    maxCount = 1;
+                }               
+            }
+
+            return solutionArr;
+        }
+
+        console.log(longestRepetition("aaaabb"));              //["a",4] 
+        console.log(longestRepetition("bbbaaabaaaa"));         //["a",4]
+        console.log(longestRepetition("cbdeuuu900"));          //["u",3] 
+        console.log(longestRepetition("abbbbb"));              //["b",5]  
+        console.log(longestRepetition("aabb"));                //["a",2]
+        console.log(longestRepetition(""));                    //["",0]
+        console.log(longestRepetition("ba"));                  //["b",1]
+
+    </script>
+</body>
+
+</html>
