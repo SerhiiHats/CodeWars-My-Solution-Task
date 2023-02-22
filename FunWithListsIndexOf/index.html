@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>task4</title>
+</head>
+
+<body>
+    <pre>
+        Implement the method indexOf (index_of in PHP), which accepts a linked list (head) and a value, 
+        and returns the index (zero based) of the first occurrence of that value if exists, or -1 otherwise.
+        For example: Given the list: 1 -> 2 -> 3 -> 3, and the value 3, indexOf / index_of should return 2.
+    </pre>
+
+    <script>
+        function indexOf(head, value) {            
+            if (!Array.isArray(head)){
+               return -1;  
+            } 
+
+            for (let index = 0; index <head.length; index++){
+                 if (head[index] === value){
+                    return index;
+                }
+            }  
+               
+            return -1;
+        }
+
+        console.log(indexOf(null, 17));                                   //, -1);
+        console.log(indexOf(undefined, 17));                              //, -1);
+        console.log(indexOf([1, 2, 3], 2));                               //, 1);
+        console.log(indexOf(['aaa', 'b', 'abc'], 'aaja'));                //, -1);
+        console.log(indexOf([], 0));                                      //, -1);
+        console.log(indexOf([], null));                                   //, -1);
+        console.log(indexOf([], undefined));                              //, -1);
+        console.log(indexOf([17, '17', 1.2], 17));                        //, 0);
+        console.log(indexOf([17, '17', 1.2], '17'));                      //, 1);
+        console.log(indexOf([1, 2, 3, 3], 3));                            //, 2);
+    </script>
+</body>
+
+</html>
