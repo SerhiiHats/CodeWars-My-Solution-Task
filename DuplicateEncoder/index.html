@@ -24,19 +24,19 @@
     <script>
         function duplicateEncode(word) {
             let tempArr = word.toLowerCase().split("");
-            let mapAll = new Map();
-            let mapDuplicate = new Map();
+            let setAll = new Set();
+            let setDuplicate = new Set();
             let newStr = "";
             tempArr.forEach(element => {
-                if (mapAll.has(element)) {
-                    mapDuplicate.set(element);
+                if (setAll.has(element)) {
+                    setDuplicate.add(element);
                 } else {
-                    mapAll.set(element);
+                    setAll.add(element);
                 }
             });
 
             tempArr.forEach(element => {
-                if (mapDuplicate.has(element)) {
+                if (setDuplicate.has(element)) {
                     newStr += ")";
                 } else {
                     newStr += "(";
