@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>task5</title>
+</head>
+
+<body>
+    <pre>
+        The goal of this exercise is to convert a string to a new string 
+        where each character in the new string is "(" if that character appears 
+        only once in the original string, or ")" if that character appears more 
+        than once in the original string. Ignore capitalization when determining 
+        if a character is a duplicate.
+        Examples
+        "din"      =>  "((("
+        "recede"   =>  "()()()"
+        "Success"  =>  ")())())"
+        "(( @"     =>  "))((" 
+    </pre>
+    <script>
+        function duplicateEncode(word) {
+            let tempArr = word.toLowerCase().split("");
+            let mapAll = new Map();
+            let mapDuplicate = new Map();
+            let newStr = "";
+            tempArr.forEach(element => {
+                if (mapAll.has(element)) {
+                    mapDuplicate.set(element);
+                } else {
+                    mapAll.set(element);
+                }
+            });
+
+            tempArr.forEach(element => {
+                if (mapDuplicate.has(element)) {
+                    newStr += ")";
+                } else {
+                    newStr += "(";
+                }
+            });
+            return newStr;
+        }
+
+
+        console.log(duplicateEncode("din")) //"((("
+        console.log(duplicateEncode("recede")) //"()()()"
+        console.log(duplicateEncode("Success")) // ")())())"
+        console.log(duplicateEncode("(( @")) // "))((" 
+    </script>
+</body>
+
+</html>
