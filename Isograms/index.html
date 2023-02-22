@@ -23,11 +23,7 @@
 
     <script>
         function isIsogram(str) {
-            // if (str === "") {
-            //     return true;
-            // }
             let newStr = str.toLowerCase().split("");
-            console.log(newStr)
             let mapStr = new Set(newStr);
             return newStr.length === Array.from(mapStr).length;
 
